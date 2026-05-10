@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Pamela ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }body {
+  background: linear-gradient(180deg, #111, #1f1f1f);
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 20px;
+}
+
+.container {
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+}
+
+.envelope {
+  width: 260px;
+  height: 180px;
+  background: #c0392b;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.envelope:hover {
+  transform: scale(1.03);
+}
+
+.envelope:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 130px solid transparent;
+  border-right: 130px solid transparent;
+  border-top: 90px solid #e74c3c;
+  transform-origin: top;
+  transition: 1s;
+  z-index: 2;
+}
+
+.open:before {
+  transform: rotateX(180deg);
+}
+
+.click-text {
+  margin-top: 25px;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.letter {
+  display: none;
+  margin-top: 30px;
+  background: rgba(255,255,255,0.95);
+  color: #222;
+  padding: 30px;
+  border-radius: 20px;
+  animation: fadeIn 2s ease;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.photo {
+  width: 100%;
+  border-radius: 18px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #c0392b;
+}
+
+.highlight {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  color: #a93226;
+  font-style: italic;
+}
+
+p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.signature {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #c0392b;
+}
+
+.qr {
+  margin-top: 30px;
+}
+
+.qr img {
+  width: 140px;
+  border-radius: 12px;
+  background: white;
+  padding: 10px;
+}
+
+.music-info {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+  </style>
+</head>
+<body><div class="stars"></div><div class="container">
+  <div class="envelope" id="envelope"></div>
+  <div class="click-text">Clique no envelope ❤️</div>  <div class="letter" id="letter"><img class="photo" src="foto.jpg" alt="Pamela e Levi" />
+
+<h1>Pamela Maria de Freitas Carvalho</h1>
+
+<div class="highlight">
+  “Para a melhor mãe que a vida poderia me dar.” ❤️
+</div>
+
+<p>
+  Meu amor, hoje venho te desejar um feliz Dia das Mães,
+  relembrando a importância de você em nossas vidas.
+</p>
+
+<p>
+  Você além de uma excelente esposa,
+  é uma mãe maravilhosa pro nosso Levi.
+</p>
+
+<p>
+  Nós te amamos muito,
+  queremos comemorar muitas vezes essa data
+  e dizer que cada ano que passa
+  nós te amamos mais e mais
+  e que você é muito especial pra nós.
+</p>
+
+<div class="signature">
+  Com amor, Ramiro e Levi ❤️
+</div>
+
+<div class="qr">
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://SEULINKAQUI.com" alt="QR Code">
+</div>
+
+<div class="music-info">
+  Música: Cinnamon Girl 🎵
+</div>
+
+<audio id="music" autoplay loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+  </div>
+</div><script>
+  const envelope = document.getElementById('envelope');
+  const letter = document.getElementById('letter');
+  const music = document.getElementById('music');
+
+  envelope.addEventListener('click', () => {
+    envelope.classList.add('open');
+
+    setTimeout(() => {
+      letter.style.display = 'block';
+      music.play();
+    }, 1000);
+  });
+
+  const stars = document.querySelector('.stars');
+
+  for(let i = 0; i < 80; i++) {
+    let star = document.createElement('div');
+    star.classList.add('star');
+
+    star.style.top = Math.random() * 100 + '%';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 2 + 's';
+
+    stars.appendChild(star);
+  }
+</script></body>
+</html>
